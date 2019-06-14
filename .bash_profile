@@ -4,7 +4,7 @@
         . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 }
 
-export PS1="\u@\h:\W\ λ "
+export PS1="\u:\W λ "
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias spotlight-reindex="sudo mdutil -E /"

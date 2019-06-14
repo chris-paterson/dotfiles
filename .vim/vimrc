@@ -1,0 +1,127 @@
+" Built in
+" Don't try to be vi compatible
+set nocompatible
+filetype off
+
+" =============================================================================
+" Plug
+" =============================================================================
+call plug#begin('~/.vim/plugged')
+
+Plug 'itchyny/lightline.vim'
+Plug 'w0rp/ale'
+
+" Fuzzy search
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Syntactic language support
+Plug 'rust-lang/rust.vim'
+"Plug 'plasticboy/vim-markdown'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+Plug 'iCyMind/NeoSolarized'
+
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+call plug#end()
+
+" FZF
+set rtp+=/usr/local/opt/fzf
+map <C-p> :FZF<CR>
+
+" Rust
+let g:rustfmt_autosave = 1
+
+" Keep undo history through file open and close
+set undofile
+set undodir=~/.vim/undodir
+
+" =============================================================================
+" Editor Settings
+" =============================================================================
+" Turn on syntax highlighting
+syntax on
+
+" Colorscheme
+set termguicolors
+set background=light
+colorscheme NeoSolarized
+
+set cursorline " Highlight current line
+
+" Show whitespace
+set list
+set listchars=tab:›\ ,trail:⋅
+
+set clipboard=unnamed " Set default clipboard to system
+
+" Whitespace
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab " spaces not tabs
+set noshiftround
+set ai "Auto indent
+set si "Smart indent
+
+set showmatch " Show matching brackets when text indicator is over them
+
+" Last line
+set showmode
+set showcmd
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" Lightline setup
+set noshowmode " Hide --INSERT-- at the bottom since lightline shows it.
+let g:lightline = { 'colorscheme': 'wombat' }
+
+" =============================================================================
+" Key rebinds
+" =============================================================================
+" inoremap jj <Esc>`^
+nnoremap H ^
+nnoremap L $
+
+" If search string all lower case, does case insensitive, else case sensitive
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+
+" =============================================================================
+" Linter
+" =============================================================================
+" only lint on save
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 1
+let g:ale_virtualtext_cursor = 1
+let g:ale_rust_rls_config = {
+	\ 'rust': {
+		\ 'all_targets': 1,
+		\ 'build_on_save': 1,
+		\ 'clippy_preference': 'on'
+	\ }
+	\ }
+let g:ale_rust_rls_toolchain = ''
+let g:ale_linters = {'rust': ['rls']}
+highlight link ALEWarningSign Todo
+highlight link ALEErrorSign WarningMsg
+highlight link ALEVirtualTextWarning Todo
+highlight link ALEVirtualTextInfo Todo
+highlight link ALEVirtualTextError WarningMsg
+let g:ale_sign_error = "✖"
+let g:ale_sign_warning = "⚠"
+let g:ale_sign_info = "i"
+let g:ale_sign_hint = "➤"
+
+nnoremap <silent> K :ALEHover<CR>
+nnoremap <silent> gd :ALEGoToDefinition<CR>

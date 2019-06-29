@@ -1,6 +1,6 @@
 # Path to oh-my-zsh installation.
 export ZSH="/Users/chris-paterson/.oh-my-zsh"
-ZSH_THEME="agnoster"
+ZSH_THEME="simple"
 
 plugins=(
     git

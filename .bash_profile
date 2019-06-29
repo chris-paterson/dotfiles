@@ -19,6 +19,8 @@ export VISUAL=nvim
 alias vim=nvim
 alias vi=nvim
 
+export TERM=xterm-256color
+
 # GO
 export GOPATH=$HOME/Developer/go
 export PATH=$PATH:$GOPATH/bin

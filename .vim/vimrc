@@ -39,6 +39,7 @@ let g:rustfmt_autosave = 1
 set undofile
 set undodir=~/.vim/undodir
 
+
 " =============================================================================
 " Editor Settings
 " =============================================================================
@@ -53,8 +54,8 @@ colorscheme NeoSolarized
 set cursorline " Highlight current line
 
 " Show whitespace
-set list
-set listchars=tab:›\ ,trail:⋅
+"set list
+"set listchars=tab:›\ ,trail:⋅
 
 set clipboard=unnamed " Set default clipboard to system
 
@@ -125,3 +126,7 @@ let g:ale_sign_hint = "➤"
 
 nnoremap <silent> K :ALEHover<CR>
 nnoremap <silent> gd :ALEGoToDefinition<CR>
+
+" coc autocomplete
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

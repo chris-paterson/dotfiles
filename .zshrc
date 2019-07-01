@@ -1,6 +1,8 @@
 # Path to oh-my-zsh installation.
 export PATH="$HOME/.cargo/bin:$PATH"
 export ZSH="/Users/chris-paterson/.oh-my-zsh"
+export RLS_ROOT="/Users/chris-paterson/.cargo/bin/rls"
+
 ZSH_THEME="simple"
 
 plugins=(
@@ -26,3 +28,4 @@ alias vim=nvim
 alias vi=nvim
 
 export RECALL_DIR='/Users/chris-paterson/Documents/recall'
+export RECALL_EDITOR='nvim'

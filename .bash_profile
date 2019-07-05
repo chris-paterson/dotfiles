@@ -28,3 +28,7 @@ export PATH=$PATH:$GOPATH/bin
 # Machine specific
 source ~/.bash_profile_env_variables
 source ~/.bash_profile_specific
+
+export RECALL_DIR="/Users/chris-paterson/Documents/recall"
+export RECALL_EDITOR=nvim
+

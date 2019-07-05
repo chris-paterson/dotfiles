@@ -2,6 +2,7 @@
 export PATH="$HOME/.cargo/bin:$PATH"
 export ZSH="/Users/chris-paterson/.oh-my-zsh"
 export RLS_ROOT="/Users/chris-paterson/.cargo/bin/rls"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 
 ZSH_THEME="simple"
 
@@ -29,3 +30,8 @@ alias vi=nvim
 
 export RECALL_DIR='/Users/chris-paterson/Documents/recall'
 export RECALL_EDITOR='nvim'
+
+source "/Users/chris-paterson/.bash_profile_specific"
+source "/Users/chris-paterson/.bash_profile_env_variables"
+
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'

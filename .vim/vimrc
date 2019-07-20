@@ -13,15 +13,16 @@ Plug 'w0rp/ale'
 
 " Fuzzy search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 
 " Syntactic language support
 Plug 'rust-lang/rust.vim'
-"Plug 'plasticboy/vim-markdown'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+
+
+Plug 'keith/swift.vim'
 
 Plug 'iCyMind/NeoSolarized'
 

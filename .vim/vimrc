@@ -16,15 +16,16 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Syntactic language support
+Plug 'elixir-editors/vim-elixir'
+Plug 'mhinz/vim-mix-format'
+
 Plug 'rust-lang/rust.vim'
-"Plug 'plasticboy/vim-markdown'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
 
 Plug 'iCyMind/NeoSolarized'
-
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 call plug#end()
 
@@ -103,17 +104,13 @@ set hlsearch
 " =============================================================================
 " only lint on save
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_completion_enabled = 1
 let g:ale_lint_on_insert_leave = 1
 let g:ale_virtualtext_cursor = 1
-let g:ale_rust_rls_config = {
-	\ 'rust': {
-		\ 'all_targets': 1,
-		\ 'build_on_save': 1,
-		\ 'clippy_preference': 'on'
-	\ }
-	\ }
-let g:ale_rust_rls_toolchain = ''
-let g:ale_linters = {'rust': ['rls']}
+
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+let g:ale_linters = { 'rust': ['rls'], 'elixir': ['elixir-ls']}
+
 highlight link ALEWarningSign Todo
 highlight link ALEErrorSign WarningMsg
 highlight link ALEVirtualTextWarning Todo
@@ -130,3 +127,8 @@ nnoremap <silent> gd :ALEGoToDefinition<CR>
 " coc autocomplete
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Elixir
+let g:mix_format_on_save = 1
+
+let g:ale_elixir_elixir_ls_release = '/Users/chris-paterson/Developer/elixir/elixir-ls/rel'

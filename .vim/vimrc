@@ -13,7 +13,6 @@ Plug 'w0rp/ale'
 
 " Fuzzy search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 
 " Syntactic language support
 Plug 'elixir-editors/vim-elixir'
@@ -24,6 +23,9 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+
+
+Plug 'keith/swift.vim'
 
 Plug 'iCyMind/NeoSolarized'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}

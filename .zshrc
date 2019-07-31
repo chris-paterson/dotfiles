@@ -14,6 +14,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 prompt_context() {} # Don't show user@hostname in prompt.
+PROMPT=$PROMPT"λ "
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias spotlight-reindex="sudo mdutil -E /"

@@ -1,6 +1,5 @@
 " Built in
-" Don't try to be vi compatible
-set nocompatible
+set nocompatible " Don't try to be vi compatible
 filetype plugin on " Vim wiki
 map <Space> <Leader>
 
@@ -10,7 +9,6 @@ map <Space> <Leader>
 call plug#begin('~/.vim/plugged')
 
 Plug 'itchyny/lightline.vim'
-Plug 'w0rp/ale'
 Plug 'tpope/vim-surround'
 
 " Fuzzy search
@@ -24,12 +22,12 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-Plug 'keith/swift.vim'
 
 Plug 'iCyMind/NeoSolarized'
 
 Plug 'vimwiki/vimwiki'
 call plug#end()
+
 
 " FZF
 set rtp+=/usr/local/opt/fzf
@@ -46,8 +44,7 @@ set undodir=~/.vim/undodir
 " =============================================================================
 " Editor Settings
 " =============================================================================
-" Turn on syntax highlighting
-syntax on
+syntax on " Turn on syntax highlighting
 
 " Colorscheme
 set termguicolors
@@ -66,10 +63,10 @@ set clipboard=unnamed " Set default clipboard to system
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set expandtab " spaces not tabs
+set expandtab " Spaces not tabs
 set noshiftround
-set ai "Auto indent
-set si "Smart indent
+set ai " Auto indent
+set si " Smart indent
 
 set showmatch " Show matching brackets when text indicator is over them
 
@@ -87,48 +84,17 @@ set tm=500
 set noshowmode " Hide --INSERT-- at the bottom since lightline shows it.
 let g:lightline = { 'colorscheme': 'wombat' }
 
-" =============================================================================
-" Key rebinds
-" =============================================================================
-" inoremap jj <Esc>`^
-nnoremap H ^
-nnoremap L $
-
 " If search string all lower case, does case insensitive, else case sensitive
 set ignorecase
 set smartcase
 set incsearch
 set hlsearch
 
-
-" =============================================================================
-" Linter
-" =============================================================================
-" only lint on save
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_completion_enabled = 1
-let g:ale_lint_on_insert_leave = 1
-let g:ale_virtualtext_cursor = 1
-
-let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
-let g:ale_linters = { 'rust': ['rls'] }
-
-highlight link ALEWarningSign Todo
-highlight link ALEErrorSign WarningMsg
-highlight link ALEVirtualTextWarning Todo
-highlight link ALEVirtualTextInfo Todo
-highlight link ALEVirtualTextError WarningMsg
-let g:ale_sign_error = "✖"
-let g:ale_sign_warning = "⚠"
-let g:ale_sign_info = "i"
-let g:ale_sign_hint = "➤"
-
-nnoremap <silent> K :ALEHover<CR>
-nnoremap <silent> gd :ALEGoToDefinition<CR>
+set colorcolumn=80
 
 " coc autocomplete
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " VimWiki
-let g:vimwiki_list = [{'path': '~/VimWiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/Documents/notes/work/', 'syntax': 'markdown', 'ext': '.md'}]

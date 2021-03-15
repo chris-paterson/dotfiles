@@ -19,6 +19,7 @@ alias supson="echo '¯\\_(ツ)_/¯'"
 alias zs='vim ~/.zshrc'
 alias jpp='pbpaste | python -m json.tool | pbcopy'
 alias hardreset='git add . && git reset --hard HEAD'
+alias gitclean='git fetch --prune --all && git branch -vv | grep "origin/.*: gone]" | awk "{print \$1}" | paste -sd " " -'
 
 # Lazy
 alias c="clear"
@@ -43,3 +44,5 @@ source "/Users/chris-paterson/.bash_profile_env_variables"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 export PATH="/usr/local/sbin:$PATH"
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

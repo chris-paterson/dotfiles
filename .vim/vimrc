@@ -21,7 +21,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'iCyMind/NeoSolarized'
 
@@ -98,3 +98,11 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " VimWiki
 let g:vimwiki_list = [{'path': '~/Documents/notes/work/', 'syntax': 'markdown', 'ext': '.md'}]
+
+" YML
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
+
+" Helpers
+"inoremap <C-d> :put =strftime('%Y-%m-%d (%a)')i
+:inoremap <F5> <C-R>=strftime("%Y-%m-%d (%a)")<CR>

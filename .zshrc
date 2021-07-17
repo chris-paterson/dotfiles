@@ -20,17 +20,6 @@ alias zs='vim ~/.zshrc'
 alias jpp='pbpaste | python -m json.tool | pbcopy'
 alias hardreset='git add . && git reset --hard HEAD'
 
-# Lazy
-alias c="clear"
-alias cc="clear"
-
-# alias python="/usr/local/bin/python3"
-# alias pip="/usr/local/bin/pip3"
-# export PATH="/Users/username/.pyenv:$PATH"
-eval "$(pyenv init -)"
-
-
-
 # Use Neovim as "preferred editor"
 export VISUAL=nvim
 # Use Neovim instead of Vim or Vi
@@ -42,4 +31,10 @@ source "/Users/chris-paterson/.bash_profile_env_variables"
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 export PATH="/usr/local/sbin:$PATH"
+
+export PATH="$HOME/.cargo/env$PATH"
+export PATH="$PATH:/usr/local/smlnj/bin/"
+export PATH="$(pyenv root)/libexec/pyenv:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

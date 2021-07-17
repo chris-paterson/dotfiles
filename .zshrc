@@ -19,6 +19,7 @@ alias supson="echo '¯\\_(ツ)_/¯'"
 alias zs='vim ~/.zshrc'
 alias jpp='pbpaste | python -m json.tool | pbcopy'
 alias hardreset='git add . && git reset --hard HEAD'
+alias gitclean='git fetch --prune --all && git branch -vv | grep "origin/.*: gone]" | awk "{print \$1}" | paste -sd " " -'
 
 # Use Neovim as "preferred editor"
 export VISUAL=nvim
@@ -37,4 +38,3 @@ export PATH="$PATH:/usr/local/smlnj/bin/"
 export PATH="$(pyenv root)/libexec/pyenv:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-

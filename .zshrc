@@ -2,6 +2,8 @@
 export ZSH="/Users/chris-paterson/.oh-my-zsh"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 
+export PATH=/opt/homebrew/bin:$PATH
+
 ZSH_THEME="simple"
 
 plugins=(
@@ -21,17 +23,6 @@ alias jpp='pbpaste | python -m json.tool | pbcopy'
 alias hardreset='git add . && git reset --hard HEAD'
 alias gitclean='git fetch --prune --all && git branch -vv | grep "origin/.*: gone]" | awk "{print \$1}" | paste -sd " " -'
 
-# Lazy
-alias c="clear"
-alias cc="clear"
-
-# alias python="/usr/local/bin/python3"
-# alias pip="/usr/local/bin/pip3"
-# export PATH="/Users/username/.pyenv:$PATH"
-eval "$(pyenv init -)"
-
-
-
 # Use Neovim as "preferred editor"
 export VISUAL=nvim
 # Use Neovim instead of Vim or Vi
@@ -44,5 +35,7 @@ source "/Users/chris-paterson/.bash_profile_env_variables"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 export PATH="/usr/local/sbin:$PATH"
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

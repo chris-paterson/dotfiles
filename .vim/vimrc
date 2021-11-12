@@ -18,7 +18,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'rust-lang/rust.vim'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
+    \ 'do': './install.sh',
     \ }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

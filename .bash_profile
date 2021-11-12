@@ -21,6 +21,10 @@
 #
 #export TERM=xterm-256color
 #
+## GO
+#export GOPATH=$HOME/Developer/go
+#export PATH=$PATH:$GOPATH/bin
+#
 ## Machine specific
 #source ~/.bash_profile_env_variables
 #source ~/.bash_profile_specific

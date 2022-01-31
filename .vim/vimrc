@@ -20,10 +20,10 @@ Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
-    \ 'do': './install.sh',
+    \ 'do': 'bash install.sh',
     \ }
 
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+"Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
 Plug 'iCyMind/NeoSolarized'
 
@@ -38,8 +38,6 @@ map <C-p> :FZF<CR>
 " Rust
 let g:rustfmt_autosave = 1
 
-
-
 " Keep undo history through file open and close
 set undofile
 set undodir=~/.vim/undodir
@@ -49,6 +47,8 @@ set undodir=~/.vim/undodir
 " Editor Settings
 " =============================================================================
 syntax on " Turn on syntax highlighting
+
+set spell
 
 " Colorscheme
 set termguicolors
@@ -101,7 +101,7 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " VimWiki
-let g:vimwiki_list = [{'path': '~/notes/work', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/Documents/notes/work', 'syntax': 'markdown', 'ext': '.md'}]
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>

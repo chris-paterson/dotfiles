@@ -15,7 +15,7 @@ source $ZSH/oh-my-zsh.sh
 prompt_context() {} # Don't show user@hostname in prompt.
 PROMPT=$PROMPT"λ "
 
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vimrc="vim ~/.vim/vimrc"
 alias supson="echo '¯\\_(ツ)_/¯'"
 alias zs='vim ~/.zshrc'
@@ -39,3 +39,4 @@ export PATH="/usr/local/sbin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"

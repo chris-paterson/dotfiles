@@ -2,7 +2,7 @@
 
 ## Maintenance
 
-- Brew: `brew bundle dump`
+- Brew: `brew bundle dump --force`
 
 ## Installing on a new system (Script)
 

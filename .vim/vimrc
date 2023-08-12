@@ -18,6 +18,8 @@ Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+Plug 'rust-lang/rust.vim' " rustfmt
+
 call plug#end()
 
 
@@ -71,8 +73,7 @@ set tm=500
 
 " Lightline setup
 set noshowmode " Hide --INSERT-- at the bottom since lightline shows it.
-"let g:lightline = { 'colorscheme': 'wombat' }
-let g:lightline = { 'colorscheme': 'solarized' }
+let g:lightline = { 'colorscheme': 'wombat' }
 
 " If search string all lower case, does case insensitive, else case sensitive
 set ignorecase
@@ -104,6 +105,9 @@ endfunction
 nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
+
+nmap <leader>a <Plug>(coc-codeaction-cursor)
+
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -114,6 +118,11 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+"rustfmt
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
 
 " VimWiki
 let g:vimwiki_list = [{'path': '~/Notes/work', 'syntax': 'markdown', 'ext': '.md'}]
@@ -126,5 +135,12 @@ autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 :inoremap <F5> <C-R>=strftime("%Y-%m-%d (%a)")<CR>
 
 
+" Change cursor after set -o vi
+let &t_SI = "\e[6 q"
+let &t_SR = "\e[4 q"
+let &t_EI = "\e[2 q"
+
 " Run after setup
 " :CocInstall coc-rust-analyzer
+let g:coc_global_config="$HOME/.vim/coc-settings.json"
+

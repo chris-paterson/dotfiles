@@ -1,16 +1,37 @@
 # Dotfiles
 
-# nvim
-1. Download the package manager:
+## Installing on a new system
+
+Run the following command for initial `config` setup in current shell:
 
 ```
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 ```
 
-2. Install packages with ":PackerSync"
-3. Set colors with `lua setColors()`
+Then run the following to avoid weird recursion problems:
+
+```
+echo ".cfg" >> .gitignore
+```
+
+Clone repo:
+
+```
+git clone --bare git@github.com:chris-paterson/dotfiles.git $HOME/.cfg
+```
+
+Configure config:
+
+```
+config config status.showUntrackedFiles no
+```
 
 
-# ZSH Plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+## Initial setup
+
+```
+git init --bare $HOME/.cfg
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+config config --local status.showUntrackedFiles no
+echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $HOME/.bashrc
+```

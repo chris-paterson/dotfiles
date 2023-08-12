@@ -1,35 +1,5 @@
 " Built in
-set nocompatible " Don't try to be vi compatible
 filetype plugin on " Vim wiki
-map <Space> <Leader>
-
-" =============================================================================
-" Plug
-" =============================================================================
-call plug#begin('~/.vim/plugged')
-
-Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-surround'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'iCyMind/NeoSolarized'
-Plug 'vimwiki/vimwiki'
-
-" Fuzzy search
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
-Plug 'rust-lang/rust.vim' " rustfmt
-
-call plug#end()
-
-
-" FZF
-set rtp+=/usr/local/opt/fzf
-map <C-p> :FZF<CR>
-
-" Keep undo history through file open and close
-set undofile
-set undodir=~/.vim/undodir
 
 
 " =============================================================================
@@ -37,102 +7,8 @@ set undodir=~/.vim/undodir
 " =============================================================================
 syntax on " Turn on syntax highlighting
 
-set spell
-
-" Colorscheme
-set termguicolors
-set background=dark
-colorscheme NeoSolarized
-
-set clipboard=unnamed " Set default clipboard to system
-
-set cursorline " Highlight current line
-set relativenumber
-set scrolloff=8
-
-" Whitespace
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab " Spaces not tabs
-set noshiftround
-set ai " Auto indent
-set si " Smart indent
-
-set showmatch " Show matching brackets when text indicator is over them
-
-" Last line
-set showmode
-set showcmd
-
 " No annoying sound on errors
-set noerrorbells
-set novisualbell
 set t_vb=
-set tm=500
-
-" Lightline setup
-set noshowmode " Hide --INSERT-- at the bottom since lightline shows it.
-let g:lightline = { 'colorscheme': 'wombat' }
-
-" If search string all lower case, does case insensitive, else case sensitive
-set ignorecase
-set smartcase
-set incsearch
-set hlsearch
-
-set colorcolumn=80
-
-" coc
-" Use tab for trigger completion with characters ahead and navigate
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Scroll coc documentation window
-nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-
-
-nmap <leader>a <Plug>(coc-codeaction-cursor)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-"rustfmt
-let g:rustfmt_autosave = 1
-let g:rustfmt_emit_files = 1
-let g:rustfmt_fail_silently = 0
-
-" VimWiki
-let g:vimwiki_list = [{'path': '~/Notes/work', 'syntax': 'markdown', 'ext': '.md'}]
-
-" YML
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
-
-" Helpers
-:inoremap <F5> <C-R>=strftime("%Y-%m-%d (%a)")<CR>
 
 
 " Change cursor after set -o vi

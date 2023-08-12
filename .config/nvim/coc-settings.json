@@ -1,0 +1,10 @@
+{
+    "javascript.format.semicolons": "insert",
+    "javascript.preferences.quoteStyle": "double",
+    "eslint.autoFixOnSave": true,
+    "eslint.format.enable": true,
+    "prettier.tabWidth": 4,
+    "prettier.printWidth": 120,
+    "prettier.trailingComma": "es5",
+    "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "javascript"]
+}

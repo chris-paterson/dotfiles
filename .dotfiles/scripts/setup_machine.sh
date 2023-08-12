@@ -18,3 +18,8 @@ fi;
 
 config checkout
 config config status.showUntrackedFiles no
+
+# Brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew bundle
+

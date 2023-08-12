@@ -1,5 +1,9 @@
 # Dotfiles
 
+## Maintenance
+
+- Brew: `brew bundle dump`
+
 ## Installing on a new system (Script)
 
 1. Copy `https://github.com/chris-paterson/dotfiles/blob/main/.dotfiles/scripts/setup_machine.sh` to `$HOME`
@@ -32,6 +36,12 @@ Configure config:
 config config status.showUntrackedFiles no
 ```
 
+### After clone
+
+#### Brew
+
+- Install: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+- Download deps: `brew bundle`
 
 ## Initial setup
 

@@ -20,7 +20,7 @@ PROMPT=$PROMPT"λ "
 #set -o vi
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias vimrc="vim ~/.vim/vimrc"
+alias vimrc="cd ~/.config/nvim && nvim ."
 alias zs='vim ~/.zshrc'
 alias supson="echo '¯\\_(ツ)_/¯'"
 alias jpp='pbpaste | python3 -m json.tool | pbcopy'
@@ -34,6 +34,8 @@ alias vi=nvim
 
 source "/Users/chris-paterson/.bash_profile_specific"
 source "/Users/chris-paterson/.bash_profile_env_variables"
+
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

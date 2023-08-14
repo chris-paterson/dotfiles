@@ -35,7 +35,7 @@ vim.opt.colorcolumn = "80"
 -- No annoying sound on errors
 vim.opt.errorbells = false
 vim.opt.visualbell = false
-vim.opt.tm = 500
+vim.opt.tm = 300
 
 -- Undo
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"

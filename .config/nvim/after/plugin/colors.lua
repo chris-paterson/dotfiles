@@ -1,4 +1,4 @@
-function setColorscheme(color)
+function SetColorscheme(color)
 	color = color or "gruvbox"
 	vim.cmd.colorscheme(color)
 
@@ -6,4 +6,4 @@ function setColorscheme(color)
     vim.cmd.termguicolor = true
 end
 
-setColorscheme()
+SetColorscheme()

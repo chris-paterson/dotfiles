@@ -19,9 +19,9 @@ return require('packer').startup(function(use)
         config = function()
             vim.g.vimwiki_list = {
                 {
-                    path = '~/Notes/work', 
+                    path = '~/Notes/work',
                     syntax = 'markdown',
-                    ext = '.md' 
+                    ext = '.md'
                 }
             }
         end

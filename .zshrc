@@ -21,7 +21,6 @@ PROMPT=$PROMPT"λ "
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vimrc="cd ~/.config/nvim && nvim ."
-alias zs='vim ~/.zshrc'
 alias supson="echo '¯\\_(ツ)_/¯'"
 alias jpp='pbpaste | python3 -m json.tool | pbcopy'
 alias hardreset='git add . && git reset --hard HEAD'
@@ -42,6 +41,8 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 export PATH="/usr/local/sbin:$PATH"
 
 
+export PATH="$HOME/go/bin:$PATH"
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 #export PATH="$PATH:$HOME/.rvm/bin"
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
@@ -51,3 +52,7 @@ if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
 fi
 
 #export PATH=/Users/chris-paterson/Work/ios/gen-ir-bin/gen-ir/.build/release:$PATH
+eval "$(pyenv init --path)"
+
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"

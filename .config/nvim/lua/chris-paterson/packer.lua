@@ -9,6 +9,9 @@ return require('packer').startup(function(use)
 
     use 'itchyny/lightline.vim'
     use 'tpope/vim-surround'
+    use 'tpope/vim-fugitive'
+
+    use 'fatih/vim-go'
 
     -- Themes
     use 'morhetz/gruvbox'
@@ -24,6 +27,8 @@ return require('packer').startup(function(use)
                     ext = '.md'
                 }
             }
+
+            vim.g.vimwiki_key_mappings.table_mappings = 0
         end
     }
 
@@ -32,23 +37,22 @@ return require('packer').startup(function(use)
     use { 'junegunn/fzf', run = ":call fzf#install()" }
     use 'junegunn/fzf.vim'
 
-    use'rust-lang/rust.vim' -- rustfmt
-
     -- LSP
-    -- use {'neoclide/coc.nvim', branch = 'release'}
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
         requires = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {'williamboman/mason.nvim'},           -- Optional
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            { 'neovim/nvim-lspconfig' },             -- Required
+            { 'williamboman/mason.nvim' },           -- Optional
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},     -- Required
-            {'hrsh7th/cmp-nvim-lsp'}, -- Required
-            {'L3MON4D3/LuaSnip'},     -- Required
+            { 'hrsh7th/nvim-cmp' },     -- Required
+            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+            { 'L3MON4D3/LuaSnip' },     -- Required
         }
     }
+
+    use 'sbdchd/neoformat' -- prettier
 end)
